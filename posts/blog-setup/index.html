@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Setup &#8212; logc.net  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Telling rocks what to think"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="blog-setup">
+<h1>Blog Setup<a class="headerlink" href="#blog-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>I have just started to rewrite my blog using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and its extension <a class="reference external" href="https://ablog.readthedocs.io/">Ablog</a>. As
+an extra, I have setup a part of the blog as a Zettelkast – which is more or
+less a glorified wiki –, and also I have configured Emacs to write posts in Org
+mode and export them to Restructured Text, which is what Sphinx expects.</p>
+</div>
+<div class="section" id="initial-setup">
+<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir blog <span class="o">&amp;&amp;</span> <span class="nb">cd</span> blog
+python -m venv venv <span class="o">&amp;&amp;</span> <span class="nb">source</span> venv/bin/activate
+pip install ablog
+ablog start
+</pre></div>
+</div>
+<p>This will create an initial structure that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── _static
+├── _templates
+├── about.rst
+├── conf.py
+├── first-post.rst
+└── index.rst
+</pre></div>
+</div>
+<p>The only customization that I have made is to have all posts in a dedicated
+subfolder. You need to specify a pattern for the post files in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">blog_post_pattern</span> <span class="o">=</span> <span class="s2">&quot;posts/*.rst&quot;</span>
+</pre></div>
+</div>
+<p>Now the directory structure can be something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── _static
+├── _templates
+├── about.rst
+├── conf.py
+├── index.rst
+└── posts
+    ├── blog-setup.org
+    └── blog-setup.rst
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-pages-that-are-not-posts">
+<h2>Adding pages that are not posts<a class="headerlink" href="#adding-pages-that-are-not-posts" title="Permalink to this headline">¶</a></h2>
+<p>I also wanted to have a part of this site that does not really need to be
+structured as a blog, i.e. pages that do not need a date, are not ordered
+chronologically and are related only via internal links.</p>
+<p>The main advantage of using Sphinx for this website is specifically for those
+pages, so that they get indexed and are searchable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ablog</span> <span class="pre">start</span></code> command already created an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file with a section for
+“Recent posts”. In order to have more pages, you just need to create a
+subfolder, add <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files there, and <strong>list at least one of them in the index page</strong> with the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directive.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Zettelkasten</span>
+<span class="gh">------------</span>
+
+<span class="m">-</span> <span class="na">:doc:</span><span class="nv">`Start page &lt;/zettelkasten/start&gt;`</span>
+</pre></div>
+</div>
+<p>With a folder structure like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.
+├── _static
+├── _templates
+├── about.rst
+├── conf.py
+├── index.rst
+└── zettelkasten
+    └── start.rst
+</pre></div>
+</div>
+<div class="section" id="adding-more-zetteln">
+<h3>Adding more zetteln<a class="headerlink" href="#adding-more-zetteln" title="Permalink to this headline">¶</a></h3>
+<p>In order to have a Zettelkasten structure, pages inside the folder have to be able to reference each other and the start page. You can get into a recursion error if you list in a <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive a page that already references the current page in another <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive. Therefore, remember to use the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directive in order to create links back to the start.</p>
+<p>For instance, with a first post that links to a second post, and both of them linking back to the start page, one would have these contents:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>└── zettelkasten
+    ├── first-zettel.rst
+    ├── second-zettel.rst
+    └── start.rst
+</pre></div>
+</div>
+<p>The start page is:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">My own Zettelkasten</span>
+<span class="gh">===================</span>
+
+Which is just a fancy way of saying &quot;my own wiki&quot;.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    first-zettel
+</pre></div>
+</div>
+<p>The first zettel is:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">A first zettel</span>
+<span class="gh">==============</span>
+
+This page is referenced from the Start page of the Zettelkasten.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    second-zettel
+</pre></div>
+</div>
+<p>And the second zettel has this contents:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">A second zettel</span>
+<span class="gh">===============</span>
+
+This second zettel references the start. Try not to reference the first one,
+or you will get into an error of recursion, since that zettel references this
+one.
+
+<span class="m">-</span> <span class="na">:doc:</span><span class="nv">`start`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="writing-posts-with-org-mode">
+<h2>Writing posts with Org-mode<a class="headerlink" href="#writing-posts-with-org-mode" title="Permalink to this headline">¶</a></h2>
+<p>This is probably only relevant if you are an Emacs user.</p>
+<p>Since the blog post pattern of ABlog (and in general, Sphinx) only picks up
+<code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, I can write <code class="docutils literal notranslate"><span class="pre">.org</span></code> files in the same folders and export them to
+<code class="docutils literal notranslate"><span class="pre">.rst</span></code> with <a class="reference external" href="https://github.com/msnoigrs/ox-rst">ox-rst</a>, a package availble in MELPA.</p>
+<p>The header of those files has to be something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#+TITLE: Blog Setup</span>
+<span class="c1">#+AUTHOR: Luis Osa</span>
+<span class="c1">#+DATE: Sun Nov 8 22:04:59 2020</span>
+<span class="c1">#+OPTIONS: toc:nil num:nil</span>
+<span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="n">meta</span>
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">:tags:</span></code> line is actually raw RST. If you use a <code class="docutils literal notranslate"><span class="pre">#+TAGS</span></code> header
+line in Org, it will not be exported to the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file. Also, notice that the
+<code class="docutils literal notranslate"><span class="pre">#+DATE</span></code> is a full timestamp and not an Org datetime; those do not get correctly
+picked up by the Sphinx engine.</p>
+<p>After exporting the Org document to RST, the <code class="docutils literal notranslate"><span class="pre">:Author:</span></code>, <code class="docutils literal notranslate"><span class="pre">:Date:</span></code> and <code class="docutils literal notranslate"><span class="pre">:tags:</span></code>
+lines are underneath the main title. Since ABlog expects to find them as front
+matter, you need to manually move them to the first lines of the file. There
+seems to be no way to define front matter with <code class="docutils literal notranslate"><span class="pre">ox-rst</span></code>. I hope this can be
+fixed in later releases.</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../">logc.net</a></h1>
+
+
+
+
+
+
+
+
+  
+<h2>
+   
+  08 November 2020 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="../../blog/author/luis-osa/">Luis Osa</a>  
+</li>
+    
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="../../blog/tag/meta/">meta</a>  
+</li>
+ 
+</ul>
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/">About the author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zettelkasten/first-zettel/">A first zettel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zettelkasten/second-zettel/">A second zettel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zettelkasten/start/">My own Zettelkasten</a></li>
+</ul>
+
+
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../../blog/tag/meta/">meta</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2020/">2020 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Luis Osa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/posts/blog-setup.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

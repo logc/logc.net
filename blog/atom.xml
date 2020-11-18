@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>logc.net</id>
+  <title>Telling rocks what to think</title>
+  <updated>2020-11-18T21:06:41.083895+00:00</updated>
+  <link href="logc.net"/>
+  <link href="logc.net/blog/atom.xml"/>
+  <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
+  <entry>
+    <id>logc.net/posts/blog-setup/</id>
+    <title>Blog Setup</title>
+    <updated>2020-11-08T22:04:59+00:00</updated>
+    <author>
+      <name>Luis Osa</name>
+    </author>
+    <content type="html">&lt;p&gt;I have just started to rewrite my blog using &lt;a class="reference external" href="https://www.sphinx-doc.org/en/master/"&gt;Sphinx&lt;/a&gt; and its extension &lt;a class="reference external" href="https://ablog.readthedocs.io/"&gt;Ablog&lt;/a&gt;. As
+an extra, I have setup a part of the blog as a Zettelkast – which is more or
+less a glorified wiki –, and also I have configured Emacs to write posts in Org
+mode and export them to Restructured Text, which is what Sphinx expects.&lt;/p&gt;
+</content>
+    <link href="logc.net/posts/blog-setup/" rel="alternate"/>
+    <published>2020-11-08T22:04:59+00:00</published>
+  </entry>
+</feed>
