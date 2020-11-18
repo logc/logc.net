@@ -154,7 +154,7 @@ Since the blog post pattern of ABlog (and in general, Sphinx) only picks up
 
 The header of those files has to be something like this:
 
-.. code:: org
+.. code::
 
     #+TITLE: Blog Setup
     #+AUTHOR: Luis Osa
