@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Telling rocks what to think &#8212; logc.net  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/library/library.css" type="text/css" />
     <script id="documentation_options" data-url_root="#" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -17,12 +17,27 @@
     <link rel="index" title="Index" href="genindex/" />
     <link rel="search" title="Search" href="search/" />
     <link rel="next" title="About the author" href="about/" /> 
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
  
+
+<link rel="stylesheet" id="sphinx-library-type" href="_static/library/type-engineer.css" type="text/css" />
+<link rel="stylesheet" href="_static/custom.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+<script>
+  mobile_menu_content = "";
+  function toggleMenu() {
+    var div = document.getElementsByClassName("document").item(0);
+    var btn = document.getElementById("menu-toggler");
+    if(div.classList.contains("mobile-show")) {
+      div.classList.remove("mobile-show");
+      btn.innerHTML = mobile_menu_content;
+    }
+    else {
+      div.classList.add("mobile-show");
+      mobile_menu_content = btn.innerHTML;
+      btn.innerHTML = btn.getAttribute("data-open");
+    }
+  }
+</script> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -55,67 +70,49 @@
   }
 </style>
 
-  </head><body>
+  </head>
+<body class="light">
+<div class="document">
+
+  
+  <nav class="mobile-menu" role="navigation">
+    
+  <button type="button" id="menu-toggler" onclick="toggleMenu();"
+    data-open="× Close">≡ Menu</button>
+  <a href="#">logc.net</a>
+  <noscript>
+    <div>
+      JavaScript is required to open/close mobile menu.
+    </div>
+  </noscript>
+  </nav>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+  
+  <nav class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    
 
-          <div class="body" role="main">
-             <div class="section" id="telling-rocks-what-to-think">
-<h1>Telling rocks what to think<a class="headerlink" href="#telling-rocks-what-to-think" title="Permalink to this headline">¶</a></h1>
-<p>This is the work website of <a class="reference internal" href="about/#about"><span class="std std-ref">Luis Osa Gómez del Campo</span></a>.</p>
-<div class="section" id="recent-blog-posts">
-<h2>Recent blog posts<a class="headerlink" href="#recent-blog-posts" title="Permalink to this headline">¶</a></h2>
-<ul class="postlist-style-none postlist">
-<li><p>08 November - <a class="reference internal" href="posts/blog-setup/">Blog Setup</a></p>
-<p>I have just started to rewrite my blog using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and its extension <a class="reference external" href="https://ablog.readthedocs.io/">Ablog</a>. As
-an extra, I have setup a part of the blog as a Zettelkast – which is more or
-less a glorified wiki –, and also I have configured Emacs to write posts in Org
-mode and export them to Restructured Text, which is what Sphinx expects.</p>
-</li>
-</ul>
+
+<h1 class="logo ">
+  <a href="#">logc.net</a>
+</h1>
+
+
+
+<p class="description">Telling rocks what to think</p>
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
 </div>
-<div class="section" id="zettelkasten">
-<h2>Zettelkasten<a class="headerlink" href="#zettelkasten" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="zettelkasten/start/"><span class="doc">Start page</span></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-</div>
-
-<div class="section">
-   
-</div>
-
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">logc.net</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="about/">About the author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zettelkasten/first-zettel/">A first zettel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zettelkasten/second-zettel/">A second zettel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zettelkasten/start/">My own Zettelkasten</a></li>
-</ul>
-
-
+<script>$('#searchbox').show(0);</script>
 <h3>
   <a href="blog/">Recent Posts</a>
 </h3>
@@ -179,35 +176,79 @@ mode and export them to Restructured Text, which is what Sphinx expects.</p>
   </li>
    
 </ul>
+<script>
+  function toggleMode(theme) {
+    document.body.className = theme;
+    localStorage.setItem("sphinx-library-mode", theme);
+  }
+  var theme = localStorage.getItem("sphinx-library-mode");
+  if(theme !== null)
+    toggleMode(theme);
+</script>
+<h3>Reading Mode</h3>
 
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search/" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
+<button type="button" onclick="toggleMode('light');">Light</button>
+<button type="button" onclick="toggleMode('sepia');">Sepia</button>
+<button type="button" onclick="toggleMode('dark');">Dark</button>
+
+<noscript>
+  <div>
+    JavaScript is required to toggle reading modes.
+  </div>
+</noscript>
+  </nav>
+  <div class="documentwrapper">
+    
+
+    <main class="body" role="main" id="main">
+       <div class="section" id="telling-rocks-what-to-think">
+<h1>Telling rocks what to think<a class="headerlink" href="#telling-rocks-what-to-think" title="Permalink to this headline">¶</a></h1>
+<p>This is the work website of <a class="reference internal" href="about/#about"><span class="std std-ref">Luis Osa Gómez del Campo</span></a>.</p>
+<div class="section" id="recent-blog-posts">
+<h2>Recent blog posts<a class="headerlink" href="#recent-blog-posts" title="Permalink to this headline">¶</a></h2>
+<ul class="postlist-style-none postlist">
+<li><p>08 November - <a class="reference internal" href="posts/blog-setup/">Blog Setup</a></p>
+<p>I have just started to rewrite my blog using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and its extension <a class="reference external" href="https://ablog.readthedocs.io/">Ablog</a>. As
+an extra, I have setup a part of the blog as a Zettelkast – which is more or
+less a glorified wiki –, and also I have configured Emacs to write posts in Org
+mode and export them to Restructured Text, which is what Sphinx expects.</p>
+</li>
+</ul>
 </div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2020, Luis Osa.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<div class="section" id="zettelkasten">
+<h2>Zettelkasten<a class="headerlink" href="#zettelkasten" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="zettelkasten/start/"><span class="doc">Start page</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
 
+<div class="section">
+   
+</div>
+
+    </main>
+    <nav class="related bottom" role="navigation">
+  <a class="next" href="about/" title="Next">
+    About the author &rarr;
+  </a>
+  <div class="clear"></div>
+    </nav>
     
 
-    
+  </div>
+
+  <div class="clear"></div>
+</div>
+<footer class="footer" role="contentinfo">
+    &copy; Copyright 2020, Luis Osa.
+  
+  Created using <a href="http://sphinx-doc.org/">Sphinx</a> with
+  <a href="https://github.com/vsalvino/sphinx-library">Library</a> theme.
+  
+  <a href="_sources/index.rst.txt" rel="nofollow">Page source</a>
+</footer>
   </body>
 </html>
