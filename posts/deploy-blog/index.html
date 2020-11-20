@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How is this blog deployed &#8212; logc.net  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/library/library.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+ 
+
+<link rel="stylesheet" id="sphinx-library-type" href="../../_static/library/type-engineer.css" type="text/css" />
+<link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+<script>
+  mobile_menu_content = "";
+  function toggleMenu() {
+    var div = document.getElementsByClassName("document").item(0);
+    var btn = document.getElementById("menu-toggler");
+    if(div.classList.contains("mobile-show")) {
+      div.classList.remove("mobile-show");
+      btn.innerHTML = mobile_menu_content;
+    }
+    else {
+      div.classList.add("mobile-show");
+      mobile_menu_content = btn.innerHTML;
+      btn.innerHTML = btn.getAttribute("data-open");
+    }
+  }
+</script> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Telling rocks what to think"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+<body class="light">
+<div class="document">
+
+  
+  <nav class="mobile-menu" role="navigation">
+    
+  <button type="button" id="menu-toggler" onclick="toggleMenu();"
+    data-open="× Close">≡ Menu</button>
+  <a href="../../">logc.net</a>
+  <noscript>
+    <div>
+      JavaScript is required to open/close mobile menu.
+    </div>
+  </noscript>
+  </nav>
+  
+
+  
+  <nav class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    
+
+
+<h1 class="logo ">
+  <a href="../../">logc.net</a>
+</h1>
+
+
+
+<p class="description">Telling rocks what to think</p>
+
+
+  
+<h2>
+   
+  20 November 2020 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="../../blog/author/luis-osa/">Luis Osa</a>  
+</li>
+    
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="../../blog/tag/meta/">meta</a>  
+</li>
+ 
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../blog-setup/"
+      >08 November - Blog Setup</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../../blog/tag/meta/">meta</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2020/">2020 (2)</a>
+  </li>
+   
+</ul>
+<script>
+  function toggleMode(theme) {
+    document.body.className = theme;
+    localStorage.setItem("sphinx-library-mode", theme);
+  }
+  var theme = localStorage.getItem("sphinx-library-mode");
+  if(theme !== null)
+    toggleMode(theme);
+</script>
+<h3>Reading Mode</h3>
+
+<button type="button" onclick="toggleMode('light');">Light</button>
+<button type="button" onclick="toggleMode('sepia');">Sepia</button>
+<button type="button" onclick="toggleMode('dark');">Dark</button>
+
+<noscript>
+  <div>
+    JavaScript is required to toggle reading modes.
+  </div>
+</noscript>
+  </nav>
+  <div class="documentwrapper">
+    
+
+    <main class="body" role="main" id="main">
+       <div class="section" id="how-is-this-blog-deployed">
+<h1>How is this blog deployed<a class="headerlink" href="#how-is-this-blog-deployed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This blog is deployed to Github Pages from <a class="reference external" href="https://github.com/logc/logc.net">this Github repository</a>, and then
+served under a sub-domain (a <code class="docutils literal notranslate"><span class="pre">www</span></code> sub-domain) of a domain that I host at <a class="reference external" href="https://aws.amazon.com/route53/">Amazon Route 53</a>.</p>
+</div>
+<div class="section" id="step-by-step">
+<h2>Step by step<a class="headerlink" href="#step-by-step" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-github-repo">
+<h3>Prepare Github repo<a class="headerlink" href="#prepare-github-repo" title="Permalink to this headline">¶</a></h3>
+<p>Create a new repository on Github. It does not need to be <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;.github.io</span></code>.</p>
+<p>Push the contents of your recently created Sphinx blog. Minor note: later it
+is assumed that you have created a Python virtual environment, or otherwise
+can list all dependencies needed in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file at the root of
+this repository.</p>
+<p>Go to repository settings and activate Github Pages. Leave for now the branch
+to be served as <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">domain</span></code> to <code class="docutils literal notranslate"><span class="pre">www.yourdomain.yourtld</span></code></p>
+<p>By doing that, a CNAME file will be created on the main branch. Pull it to
+your local clone of the repository.</p>
+</div>
+<div class="section" id="deployment-via-github-action">
+<h3>Deployment via Github Action<a class="headerlink" href="#deployment-via-github-action" title="Permalink to this headline">¶</a></h3>
+<p>Create a directory <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> in the root folder of your <code class="docutils literal notranslate"><span class="pre">main</span></code>
+branch.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p .github/workflows/
+</pre></div>
+</div>
+<p>Add the following contents to a file called <code class="docutils literal notranslate"><span class="pre">deploy.yml</span></code> (or any other name,
+as long as it is a YAML file and it is under that folder):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-website</span>
+
+<span class="c1"># Only run this when the main branch changes</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="nt">push</span><span class="p">:</span>
+    <span class="nt">branches</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="c1"># This job installs dependencies, build the book, and pushes it to `gh-pages`</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="nt">deploy-book</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+
+    <span class="c1"># Install dependencies</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set up Python 3.8</span>
+    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+    <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">python-version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.8.6</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">pip install -r requirements.txt</span>
+    <span class="c1"># Build the book</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build the site</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">ablog build</span>
+    <span class="c1"># Push the book&#39;s HTML to github-pages</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GitHub Pages action</span>
+    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3.5.9</span>
+    <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+        <span class="nt">publish_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./_website</span>
+        <span class="nt">cname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">www.yourdomain.yourtld</span>
+</pre></div>
+</div>
+<p>I think the contents are pretty self-explanatory, but for completeness sake:
+what this workflow does is to check out the repository every time that there
+is a push on <code class="docutils literal notranslate"><span class="pre">main</span></code>, on a VM running the latest Ubuntu version, and then
+proceeds to install Python 3.8 and all dependencies listed on the
+repository’s <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (which should include ABlog and Sphinx).
+Then it builds the blog using the command <code class="docutils literal notranslate"><span class="pre">ablog</span> <span class="pre">build</span></code>, which is the same
+command used locally to build everything, and then copies the contents of
+the results directory, <code class="docutils literal notranslate"><span class="pre">_website</span></code>, as if they were the contents of a <strong>new branch</strong> called <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> back to the same Github repository. It also
+includes a file called CNAME, apart from the results of building with ABlog,
+that contains the custom domain we want to answer from.</p>
+<p>After running this workflow for the first time (any push on <code class="docutils literal notranslate"><span class="pre">main</span></code> will be
+enough, e.g. a change in the README) then a new branch <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> should be
+available.</p>
+<p>Change the Github repo settings to serve <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> and <code class="docutils literal notranslate"><span class="pre">/root</span></code>. Keep the same
+custom domain.</p>
+<p>You may now remove the CNAME file from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. It is not needed.</p>
+</div>
+<div class="section" id="changes-in-dns">
+<h3>Changes in DNS<a class="headerlink" href="#changes-in-dns" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to head over to your DNS provider and create a CNAME record on
+their side that maps <code class="docutils literal notranslate"><span class="pre">www.yourdomain.yourtld</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;.github.io</span></code>. This is
+weird but that is what the official Github documentation says. The specific
+repository under your user account is chosen based on the CNAME file that is
+served on their side.</p>
+<p>The changes in DNS may take from one hour to one day to propagate. In my
+experience, waiting for several minutes was enough.</p>
+<p>Once the changes are propagated, you will be able to open a browser and type <code class="docutils literal notranslate"><span class="pre">http://www.yourdomain.yourtld</span></code> to see the contents of your new blog.</p>
+</div>
+<div class="section" id="add-https">
+<h3>Add HTTPS<a class="headerlink" href="#add-https" title="Permalink to this headline">¶</a></h3>
+<p>In order to add TLS (note that the previous address uses <code class="docutils literal notranslate"><span class="pre">http</span></code>, not
+<code class="docutils literal notranslate"><span class="pre">https</span></code>!), you need to navigate again to the Github repository’s settings
+and click on the setting “Enforce HTTPS” under Github Pages. Github will
+take care of certificates and renewing them.</p>
+<p>And that is all! Enjoy your new blog.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="../blog-setup/">
+       Blog Setup
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+    </main>
+    <nav class="related bottom" role="navigation">
+  <div class="clear"></div>
+    </nav>
+    
+
+  </div>
+
+  <div class="clear"></div>
+</div>
+<footer class="footer" role="contentinfo">
+    &copy; Copyright 2020, Luis Osa.
+  
+  Created using <a href="http://sphinx-doc.org/">Sphinx</a> with
+  <a href="https://github.com/vsalvino/sphinx-library">Library</a> theme.
+  
+  <a href="../../_sources/posts/deploy-blog.rst.txt" rel="nofollow">Page source</a>
+</footer>
+  </body>
+</html>

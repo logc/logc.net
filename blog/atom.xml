@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://www.logc.net/</id>
   <title>Telling rocks what to think</title>
-  <updated>2020-11-20T08:35:46.801994+00:00</updated>
+  <updated>2020-11-20T21:50:09.495952+00:00</updated>
   <link href="https://www.logc.net/"/>
   <link href="https://www.logc.net/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -20,5 +20,18 @@ mode and export them to Restructured Text, which is what Sphinx expects.&lt;/p&g
 </content>
     <link href="https://www.logc.net/posts/blog-setup/" rel="alternate"/>
     <published>2020-11-08T22:04:59+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.logc.net/posts/deploy-blog/</id>
+    <title>How is this blog deployed</title>
+    <updated>2020-11-20T22:11:51+00:00</updated>
+    <author>
+      <name>Luis Osa</name>
+    </author>
+    <content type="html">&lt;p&gt;This blog is deployed to Github Pages from &lt;a class="reference external" href="https://github.com/logc/logc.net"&gt;this Github repository&lt;/a&gt;, and then
+served under a sub-domain (a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;www&lt;/span&gt;&lt;/code&gt; sub-domain) of a domain that I host at &lt;a class="reference external" href="https://aws.amazon.com/route53/"&gt;Amazon Route 53&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <link href="https://www.logc.net/posts/deploy-blog/" rel="alternate"/>
+    <published>2020-11-20T22:11:51+00:00</published>
   </entry>
 </feed>
