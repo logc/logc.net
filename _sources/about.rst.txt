@@ -4,8 +4,9 @@
 About the author
 ================
 
-My name is Luis Osa Gómez del Campo, and I often use the handle `logc` because
-that is the acronym of my name if you remove the contraction "del".
+My name is Luis Osa Gómez del Campo, I am a software engineer and I often use
+the handle `logc` because that is the acronym of my name if you remove the
+contraction "del".
 
 The title "Telling rocks what to think" is a definition of programming in less
 than five words originally created by `@ErinIshimoticha on Twitter
