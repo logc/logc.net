@@ -11,7 +11,7 @@ Summary
 -------
 
 I have just started to rewrite my blog using `Sphinx <https://www.sphinx-doc.org/en/master/>`_ and its extension `Ablog <https://ablog.readthedocs.io/>`_. As
-an extra, I have setup a part of the blog as a Zettelkast -- which is more or
+an extra, I have setup a part of the blog as a Zettelkasten -- which is more or
 less a glorified wiki --, and also I have configured Emacs to write posts in Org
 mode and export them to Restructured Text, which is what Sphinx expects.
 
