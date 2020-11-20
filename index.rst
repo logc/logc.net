@@ -6,7 +6,9 @@
 Telling rocks what to think
 ===========================
 
-This is the work website of :ref:`Luis Osa Gómez del Campo <about>`.
+This is the work website of :ref:`Luis Osa Gómez del Campo <about>`. The
+opinions expressed here are my own, not my employer's. And of course, all errors
+and inaccuracies are mine. Thanks to anyone who takes an interest in these notes!
 
 
 Recent blog posts
