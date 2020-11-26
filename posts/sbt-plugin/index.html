@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating SBT plugins &#8212; logc.net  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/library/library.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+ 
+
+<link rel="stylesheet" id="sphinx-library-type" href="../../_static/library/type-engineer.css" type="text/css" />
+<link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+<script>
+  mobile_menu_content = "";
+  function toggleMenu() {
+    var div = document.getElementsByClassName("document").item(0);
+    var btn = document.getElementById("menu-toggler");
+    if(div.classList.contains("mobile-show")) {
+      div.classList.remove("mobile-show");
+      btn.innerHTML = mobile_menu_content;
+    }
+    else {
+      div.classList.add("mobile-show");
+      mobile_menu_content = btn.innerHTML;
+      btn.innerHTML = btn.getAttribute("data-open");
+    }
+  }
+</script> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Telling rocks what to think"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+<body class="light">
+<div class="document">
+
+  
+  <nav class="mobile-menu" role="navigation">
+    
+  <button type="button" id="menu-toggler" onclick="toggleMenu();"
+    data-open="× Close">≡ Menu</button>
+  <a href="../../">logc.net</a>
+  <noscript>
+    <div>
+      JavaScript is required to open/close mobile menu.
+    </div>
+  </noscript>
+  </nav>
+  
+
+  
+  <nav class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    
+
+
+<h1 class="logo ">
+  <a href="../../">logc.net</a>
+</h1>
+
+
+
+<p class="description">Telling rocks what to think</p>
+
+
+  
+<h2>
+   
+  24 November 2020 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="../../blog/author/luis-osa/">Luis Osa</a>  
+</li>
+    
+<li id="tags">
+  <span
+    >Tags: </span
+  >
+   
+  <a href="../../blog/tag/scala/">scala</a>   
+  <a href="../../blog/tag/sbt/">sbt</a>   
+  <a href="../../blog/tag/build/">build</a>  
+</li>
+ 
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../deploy-blog/"
+      >20 November - How is this blog deployed</a
+    >
+  </li>
+  
+  <li>
+    <a href="../blog-setup/"
+      >08 November - Blog Setup</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/build/">build</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../blog/tag/meta/">meta</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/sbt/">sbt</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/scala/">scala</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2020/">2020 (3)</a>
+  </li>
+   
+</ul>
+<script>
+  function toggleMode(theme) {
+    document.body.className = theme;
+    localStorage.setItem("sphinx-library-mode", theme);
+  }
+  var theme = localStorage.getItem("sphinx-library-mode");
+  if(theme !== null)
+    toggleMode(theme);
+</script>
+<h3>Reading Mode</h3>
+
+<button type="button" onclick="toggleMode('light');">Light</button>
+<button type="button" onclick="toggleMode('sepia');">Sepia</button>
+<button type="button" onclick="toggleMode('dark');">Dark</button>
+
+<noscript>
+  <div>
+    JavaScript is required to toggle reading modes.
+  </div>
+</noscript>
+  </nav>
+  <div class="documentwrapper">
+    
+
+    <main class="body" role="main" id="main">
+       <div class="section" id="creating-sbt-plugins">
+<h1>Creating SBT plugins<a class="headerlink" href="#creating-sbt-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>How to create a minimal working SBT plugin. There is an example repository on
+Github <a class="reference external" href="https://github.com/logc/sbt-hello">here</a>.</p>
+</div>
+<div class="section" id="create-a-new-scala-project">
+<h2>Create a new Scala project<a class="headerlink" href="#create-a-new-scala-project" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sbt new scala/scala-seed.g8
+</pre></div>
+</div>
+<p>Pick a name that starts with <code class="docutils literal notranslate"><span class="pre">sbt-</span></code>, following the <a class="reference external" href="https://www.scala-sbt.org/1.x/docs/Plugins-Best-Practices.html#Artifact+naming+convention">plugin author best practices</a>.</p>
+</div>
+<div class="section" id="modify-build-sbt">
+<h2>Modify <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code><a class="headerlink" href="#modify-build-sbt" title="Permalink to this headline">¶</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Remove the <code class="docutils literal notranslate"><span class="pre">scalaVersion</span></code> from <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code>. In <a class="reference external" href="https://github.com/sbt/sbt/issues/5032">this issue</a> of SBT the authors
+explain that there is no version of SBT for Scala 2.13. However, since that is
+the current stable version of Scala, the <code class="docutils literal notranslate"><span class="pre">scala-seed</span></code> project template selects
+it by default, leading to a compilation error.</p>
+</div>
+<p>The only other change to <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code> is to add a line <code class="docutils literal notranslate"><span class="pre">enablePlugins</span></code> to the
+main project. Enabling the <code class="docutils literal notranslate"><span class="pre">SbtPlugin</span></code> is what marks this project as an SBT
+plugin at all.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">lazy</span> <span class="k">val</span> <span class="n">root</span> <span class="o">=</span> <span class="o">(</span><span class="n">project</span> <span class="n">in</span> <span class="n">file</span><span class="o">(</span><span class="s">&quot;.&quot;</span><span class="o">))</span>
+  <span class="o">.</span><span class="n">enablePlugins</span><span class="o">(</span><span class="nc">SbtPlugin</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">settings</span><span class="o">(</span>
+    <span class="n">name</span> <span class="o">:=</span> <span class="s">&quot;sbt-hello&quot;</span>
+  <span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extend-autoplugin">
+<h2>Extend <code class="docutils literal notranslate"><span class="pre">AutoPlugin</span></code><a class="headerlink" href="#extend-autoplugin" title="Permalink to this headline">¶</a></h2>
+<p>I am not sure whether there is another interface to create SBT plugins but this
+one is convenient: create an object that extends <code class="docutils literal notranslate"><span class="pre">AutoPlugin</span></code>.</p>
+<p>Inside that object, the most important things that you should define are a
+<code class="docutils literal notranslate"><span class="pre">Task</span></code> for your plugin, and whatever <code class="docutils literal notranslate"><span class="pre">Settings</span></code> it takes to get configured.
+There is some discussion in the documentation about the differences between a
+Task and a Command, but the quick explanation is that the Task is whatever
+command the user of your plugin is going to execute on the SBT shell, while a
+Setting is something to be customized in the user’s <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code>.</p>
+<p>There are <strong>functions</strong> called <code class="docutils literal notranslate"><span class="pre">taskKey[T]</span></code> and <code class="docutils literal notranslate"><span class="pre">settingKey[T]</span></code> that allow you to
+produce the <strong>types</strong> <code class="docutils literal notranslate"><span class="pre">TaskKey</span></code> and <code class="docutils literal notranslate"><span class="pre">SettingKey</span></code> (note the different
+capitalization).</p>
+<p>A simple example taken from the reference documentation is this plugin:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">SbtHelloPlugin</span> <span class="k">extends</span> <span class="nc">AutoPlugin</span> <span class="o">{</span>
+  <span class="k">object</span> <span class="nc">autoImport</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">settingKey</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;greeting&quot;</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">hello</span> <span class="o">=</span> <span class="n">taskKey</span><span class="o">[</span><span class="kt">Unit</span><span class="o">](</span><span class="s">&quot;say hello&quot;</span><span class="o">)</span>
+  <span class="o">}</span>
+  <span class="k">import</span> <span class="nn">autoImport._</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">trigger</span> <span class="o">=</span> <span class="n">allRequirements</span>
+  <span class="k">override</span> <span class="k">lazy</span> <span class="k">val</span> <span class="n">buildSettings</span> <span class="o">=</span>
+    <span class="nc">Seq</span><span class="o">(</span><span class="n">greeting</span> <span class="o">:=</span> <span class="s">&quot;Hi!&quot;</span><span class="o">,</span> <span class="n">hello</span> <span class="o">:=</span> <span class="n">helloTask</span><span class="o">.</span><span class="n">value</span><span class="o">)</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">helloTask</span> <span class="o">=</span>
+    <span class="nc">Def</span><span class="o">.</span><span class="n">task</span> <span class="o">{</span>
+      <span class="n">println</span><span class="o">(</span><span class="n">greeting</span><span class="o">.</span><span class="n">value</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">greeting</span></code> is a value that can be overridden by users in their
+<code class="docutils literal notranslate"><span class="pre">build.sbt</span></code>, and <code class="docutils literal notranslate"><span class="pre">hello</span></code> is the command name they can use in the SBT shell to
+perform what the plugin has to offer. The return type of that task is <code class="docutils literal notranslate"><span class="pre">Unit</span></code>
+because it just prints a string to the console, and the type of the setting is a
+<code class="docutils literal notranslate"><span class="pre">String</span></code> because that is what gets printed.</p>
+<p>Usually, you would create another object, in the same package or even in the
+same file, that implements an <code class="docutils literal notranslate"><span class="pre">apply</span></code> method that is really doing the work you
+intend to do. That is what you would have to call in the <code class="docutils literal notranslate"><span class="pre">Def.task</span></code> part of the
+Plugin object.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">Hello</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;Hi!&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">SbtHelloPlugin</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">helloTask</span> <span class="o">=</span>
+    <span class="nc">Def</span><span class="o">.</span><span class="n">task</span> <span class="o">{</span>
+      <span class="nc">Hello</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="../deploy-blog/">
+       How is this blog deployed
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+    </main>
+    <nav class="related bottom" role="navigation">
+  <div class="clear"></div>
+    </nav>
+    
+
+  </div>
+
+  <div class="clear"></div>
+</div>
+<footer class="footer" role="contentinfo">
+    &copy; Copyright 2020, Luis Osa.
+  
+  Created using <a href="http://sphinx-doc.org/">Sphinx</a> with
+  <a href="https://github.com/vsalvino/sphinx-library">Library</a> theme.
+  
+  <a href="../../_sources/posts/sbt-plugin.rst.txt" rel="nofollow">Page source</a>
+</footer>
+  </body>
+</html>

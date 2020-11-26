@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://www.logc.net/</id>
   <title>Telling rocks what to think</title>
-  <updated>2020-11-20T21:50:09.495952+00:00</updated>
+  <updated>2020-11-26T16:58:05.305359+00:00</updated>
   <link href="https://www.logc.net/"/>
   <link href="https://www.logc.net/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -33,5 +33,18 @@ served under a sub-domain (a &lt;code class="docutils literal notranslate"&gt;&l
 </content>
     <link href="https://www.logc.net/posts/deploy-blog/" rel="alternate"/>
     <published>2020-11-20T22:11:51+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.logc.net/posts/sbt-plugin/</id>
+    <title>Creating SBT plugins</title>
+    <updated>2020-11-24T16:35:41+00:00</updated>
+    <author>
+      <name>Luis Osa</name>
+    </author>
+    <content type="html">&lt;p&gt;How to create a minimal working SBT plugin. There is an example repository on
+Github &lt;a class="reference external" href="https://github.com/logc/sbt-hello"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <link href="https://www.logc.net/posts/sbt-plugin/" rel="alternate"/>
+    <published>2020-11-24T16:35:41+00:00</published>
   </entry>
 </feed>
