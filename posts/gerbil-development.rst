@@ -84,10 +84,14 @@ Within ``.doom.d/config.el``, add:
 
     (after! gerbil-mode
       (map! :map gerbil-mode-map
-            :localleader :desc "Run Scheme shell"
+            :localleader :desc "Run Scheme REPL"
             "'" (cmd! (pop-to-buffer "*scheme*")
                       (run-scheme scheme-program-name))
+            :desc "Send region"
             "," #'scheme-send-region
+            :desc "Send definition"
             "e" #'scheme-send-definition
+            :desc "Send definition and go"
             "E" #'scheme-send-definition-and-go
+            :desc "Load a file"
             "l" #'scheme-load-file))
