@@ -322,12 +322,16 @@ the local leader key, which is defined elsewhere in my config to <code class="do
 <p>Within <code class="docutils literal notranslate"><span class="pre">.doom.d/config.el</span></code>, add:</p>
 <div class="highlight-elisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">after!</span> <span class="nv">gerbil-mode</span>
   <span class="p">(</span><span class="nv">map!</span> <span class="nb">:map</span> <span class="nv">gerbil-mode-map</span>
-        <span class="nb">:localleader</span> <span class="nb">:desc</span> <span class="s">&quot;Run Scheme shell&quot;</span>
+        <span class="nb">:localleader</span> <span class="nb">:desc</span> <span class="s">&quot;Run Scheme REPL&quot;</span>
         <span class="s">&quot;&#39;&quot;</span> <span class="p">(</span><span class="nv">cmd!</span> <span class="p">(</span><span class="nv">pop-to-buffer</span> <span class="s">&quot;*scheme*&quot;</span><span class="p">)</span>
                   <span class="p">(</span><span class="nv">run-scheme</span> <span class="nv">scheme-program-name</span><span class="p">))</span>
+        <span class="nb">:desc</span> <span class="s">&quot;Send region&quot;</span>
         <span class="s">&quot;,&quot;</span> <span class="nf">#&#39;</span><span class="nv">scheme-send-region</span>
+        <span class="nb">:desc</span> <span class="s">&quot;Send definition&quot;</span>
         <span class="s">&quot;e&quot;</span> <span class="nf">#&#39;</span><span class="nv">scheme-send-definition</span>
+        <span class="nb">:desc</span> <span class="s">&quot;Send definition and go&quot;</span>
         <span class="s">&quot;E&quot;</span> <span class="nf">#&#39;</span><span class="nv">scheme-send-definition-and-go</span>
+        <span class="nb">:desc</span> <span class="s">&quot;Load a file&quot;</span>
         <span class="s">&quot;l&quot;</span> <span class="nf">#&#39;</span><span class="nv">scheme-load-file</span><span class="p">))</span>
 </pre></div>
 </div>
