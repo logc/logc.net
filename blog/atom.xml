@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://www.logc.net/</id>
   <title>Telling rocks what to think</title>
-  <updated>2020-11-26T16:58:05.305359+00:00</updated>
+  <updated>2020-12-05T21:17:55.354825+00:00</updated>
   <link href="https://www.logc.net/"/>
   <link href="https://www.logc.net/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -46,5 +46,21 @@ Github &lt;a class="reference external" href="https://github.com/logc/sbt-hello"
 </content>
     <link href="https://www.logc.net/posts/sbt-plugin/" rel="alternate"/>
     <published>2020-11-24T16:35:41+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.logc.net/posts/gerbil-development/</id>
+    <title>Setting up a development environment for Gerbil Scheme and Doom Emacs</title>
+    <updated>2020-12-04T18:24:35+00:00</updated>
+    <author>
+      <name>Luis Osa</name>
+    </author>
+    <content type="html">&lt;p&gt;There is an &lt;a class="reference external" href="https://cons.io/guide/"&gt;installation guide&lt;/a&gt; and a &lt;a class="reference external" href="https://cons.io/guide/emacs.html"&gt;page&lt;/a&gt; about development with Emacs in the
+Gerbil Scheme website, but I felt it was centered on plain Emacs and not on
+variants like Doom Emacs – which is fine, of course, I just happen to prefer Doom
+because it has a focus on Vim keybindings and I am much more used to them than
+to plain Emacs chords.&lt;/p&gt;
+</content>
+    <link href="https://www.logc.net/posts/gerbil-development/" rel="alternate"/>
+    <published>2020-12-04T18:24:35+00:00</published>
   </entry>
 </feed>
