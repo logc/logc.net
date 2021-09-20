@@ -1,1 +1,5 @@
-/* Intentionally left blank. */
+ul.postlist a.internal {
+  font-weight: bold;
+  font-style: italic;
+  font-size: larger;
+}
